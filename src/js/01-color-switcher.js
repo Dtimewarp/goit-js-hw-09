@@ -7,6 +7,7 @@ let timerId = null
 btnStart.addEventListener("click", handleClick)
 btnStop.addEventListener("click", () => {
     clearInterval(timerId);
+    btnStart.disabled = false;
 });
 
 function handleClick(click) {
