@@ -61,14 +61,21 @@ const timer = {
       timerComponents(convertMs(deltaTime));
       startBtn.disabled = true;
       input.disabled = true;
+// умова зупинки таймера
+      if (deltaTime <= 1000) {
+        timer.stop();
+        Notiflix.Notify.success(`Відлік часу завершено!`);
+      }
     }, TIMER_DELAY);
   },
+
   stop() {
     clearInterval(intervalId);
     startBtn.disabled = false;
     input.disabled = false;
   },
-};
+}
+
 
 function timerComponents({ days, hours, minutes, seconds }) {
   dataDays.textContent = days;

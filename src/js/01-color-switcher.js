@@ -9,18 +9,22 @@ btnStop.addEventListener("click", () => {
     clearInterval(timerId);
     btnStart.disabled = false;
 });
+btnStop.disabled = true;
 
 function handleClick(click) {
-    btnStart.disabled = true;
+    
     timerId = setInterval(()=> {
         const randomColor = getRandomHexColor(); 
         document.body.style.backgroundColor = randomColor;;
     }, delay);
-    
+    btnStart.disabled = true;
+    btnStop.disabled = false;
 }
 
 function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, 0)}`;
+    return `#${Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, 0)}`;
 }
 
 
